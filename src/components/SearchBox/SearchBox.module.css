@@ -1,0 +1,17 @@
+.container {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.text {
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  border-color: yellow;
+  border-radius: 5px;
+  width: 250px;
+}

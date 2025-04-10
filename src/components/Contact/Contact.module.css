@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 16px;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+button {
+  font-size: 16px;
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #c82333;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+}
+.icon {
+  margin-right: 10px;
+}
