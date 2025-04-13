@@ -8,13 +8,13 @@ import { selectIsRefreshing } from "./redux/auth/selectors";
 import PrivateRoute from "./components/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute";
 
-const HomePage = lazy(() => import("./Pages/HomePage/HomePage.jsx"));
-const LoginPage = lazy(() => import("./Pages/LoginPage/LoginPage.jsx"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage.jsx"));
 const ContactsPage = lazy(() =>
-  import("./Pages/ContactsPage/ContactsPage.jsx")
+  import("./pages/ContactsPage/ContactsPage.jsx")
 );
 const RegistrationPage = lazy(() =>
-  import("./Pages/RegistrationPage/RegistrationPage.jsx")
+  import("./pages/RegistrationPage/RegistrationPage.jsx")
 );
 
 function App() {
