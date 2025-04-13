@@ -24,7 +24,7 @@ export const addContact = createAsyncThunk(
   async (contactData, thunkAPI) => {
     try {
       const response = await axios.post("/contacts", contactData);
-      toast.success(`${contactId} add successfully!`, toastConfig);
+      toast.success("Contact add successfully!", toastConfig);
       return response.data;
     } catch (error) {
       toast.error(`Error: ${error.message}`, toastConfig);
