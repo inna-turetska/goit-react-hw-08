@@ -1,12 +1,12 @@
-.container {
+.form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 10px;
   justify-content: center;
-  max-width: 460px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background: #6b4a8c;
+  background: #79549e;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -14,10 +14,10 @@
 
 .label {
   text-align: center;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: bold;
-  margin: 10px auto;
-  color: #221336;
+  margin: 0 auto;
+  color: #470135;
 }
 
 .input {
@@ -29,7 +29,7 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: #fff;
-  color: #50023b;
+  color: #570a42;
 }
 
 .input:focus {
@@ -64,4 +64,10 @@ button:focus {
 
 button:active {
   background-color: #c03f9e;
+}
+
+.error {
+  color: #570a42;
+  font-size: 16px;
+  margin-bottom: 10px;
 }

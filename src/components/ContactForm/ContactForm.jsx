@@ -1,54 +1,54 @@
-import styles from "./ContactForm.module.css";
+import * as Yup from "yup";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
-import { toast } from "react-toastify";
+import { addContact } from "../../redux/contacts/operations";
+import styles from "./ContactForm.module.css";
+
+const validationSchema = Yup.object({
+  name: Yup.string()
+    .min(2, "Name must be at least 2 characters")
+    .required("Required field"),
+  number: Yup.string()
+    .matches(/^[\d+\s()-]+$/, "Invalid phone number format")
+    .required("Required field"),
+});
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.target;
 
-    const name = form.elements.name.value.trim();
-    const phone = form.elements.phone.value.trim();
-
-    if (!name || !phone) {
-      toast.error("All fields must be filled!", {
-        position: "top-right",
-        autoClose: 3000,
-      });
-      return;
-    }
-
+  const handleSubmit = (values, actions) => {
     const newContact = {
-      name: name,
-      number: phone,
+      name: values.name.trim(),
+      number: values.number.trim(),
     };
-    try {
-      await dispatch(addContact(newContact));
-      form.reset();
-      toast.success(`${newContact.name} has been added!`, {
-        position: "top-right",
-        autoClose: 3000,
-      });
-    } catch (error) {
-      toast.error(`Error: ${error.message}`, {
-        position: "top-right",
-        autoClose: 3000,
-      });
-    }
+
+    dispatch(addContact(newContact));
+    actions.resetForm();
   };
+
   return (
-    <div>
-      <form onSubmit={handleSubmit} className={styles.container}>
+    <Formik
+      initialValues={{ name: "", number: "" }}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      <Form
+        className={styles.form}
+        autoComplete="off"
+        className={styles.container}
+      >
         <label className={styles.label}>Name</label>
-        <input className={styles.input} type="text" name="name" />
+        <Field className={styles.input} type="text" name="name" />
+        <ErrorMessage name="name" component="div" className={styles.error} />
+
         <label className={styles.label}>Number</label>
-        <input className={styles.input} type="text" name="phone" />
-        <button type="submit" className={styles.button}>
+        <Field className={styles.input} type="text" name="number" />
+        <ErrorMessage name="number" component="div" className={styles.error} />
+
+        <button className={styles.button} type="submit">
           Add contact
         </button>
-      </form>
-    </div>
+      </Form>
+    </Formik>
   );
 };

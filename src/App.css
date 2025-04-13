@@ -1,15 +1,1 @@
-.appContainer {
-  max-width: 600px;
-  margin: 20px auto;
-  background-color: #f4f4f4;
-  padding: 20px;
-  border-radius: 10px;
-}
 
-h1 {
-  background: black;
-  color: white;
-  padding: 10px;
-  display: inline-block;
-  border-radius: 5px;
-}
